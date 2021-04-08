@@ -14,30 +14,29 @@ public class LocProviderListActivity extends AppCompatActivity {
     TextView mTextView;
     LocationManager lm;
     List<String> locProvList;
-    Button mButton;
-
+    Button mbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.txtOutput);
-        mButton = findViewById(R.id.button);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        mbutton = findViewById(R.id.button);
+        mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 lm = (LocationManager) getSystemService(LOCATION_SERVICE);
-
                 locProvList = lm.getAllProviders();
-
                 String s = "";
-                for (int i=0; i < locProvList.size(); i++){
-                    s += "Loc.Provider: " + locProvList.get(i) + "\n"
-                            + "Status: " + lm.isProviderEnabled(locProvList.get(i)) + "\n\n";
+                for(String str : locProvList){
+                    s += "Loc. Provider:" + str + "\n" +
+                            "Statue:" + lm.isProviderEnabled(str) + "\n\n";
+
                 }
                 mTextView.setText(s);
             }
         });
+
 
     }
 }
