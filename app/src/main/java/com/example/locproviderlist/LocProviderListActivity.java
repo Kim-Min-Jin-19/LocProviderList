@@ -14,15 +14,15 @@ public class LocProviderListActivity extends AppCompatActivity {
     TextView mTextView;
     LocationManager lm;
     List<String> locProvList;
-    Button mbutton;
+    Button mButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.txtOutput);
-        mbutton = findViewById(R.id.button);
-        mbutton.setOnClickListener(new View.OnClickListener() {
+        mButton = findViewById(R.id.button);
+        mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 lm = (LocationManager) getSystemService(LOCATION_SERVICE);
